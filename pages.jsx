@@ -114,6 +114,14 @@ function ServicePage({ kind, navigate }) {
 
   const m = meta[kind];
 
+  // Real photos mapped by service + section index
+  const heroImg = { condo: IMG.condo3, kitchen: IMG.kitchen3, bathroom: IMG.bathroom3 }[kind];
+  const sectionImgs = {
+    condo: [IMG.condo1, IMG.kitchen2, IMG.condo2, IMG.consult2, IMG.consult1],
+    kitchen: [IMG.kitchen1, IMG.kitchen4, IMG.consult1, IMG.kitchen2],
+    bathroom: [IMG.bathroom1, IMG.bathroom2, IMG.bathroom3, IMG.bathroom2],
+  }[kind];
+
   return (
     <main className="page" data-screen-label={`Service — ${m.eyebrow}`} id="page-body">
       <PageHero
@@ -122,6 +130,7 @@ function ServicePage({ kind, navigate }) {
         lede={m.lede}
         breadcrumbs={m.breadcrumbs}
         navigate={navigate}
+        img={heroImg}
       />
 
       {/* INTRO */}
@@ -143,7 +152,7 @@ function ServicePage({ kind, navigate }) {
             {m.sections.map((s, i) => (
               <div className="svc-content__row" key={s.h}>
                 <div className="svc-content__media">
-                  <ImagePlaceholder label={`${s.h.toLowerCase()} — replace`} ratio="5/4" tone={s.tone} />
+                  <ImagePlaceholder src={sectionImgs[i]} alt={`${s.h} — Nagy & Sons Builders, South Florida`} label={`${s.h.toLowerCase()} — replace`} ratio="5/4" tone={s.tone} />
                   <div className="svc-content__idx">{String(i + 1).padStart(2, "0")}</div>
                 </div>
                 <div className="svc-content__body">
@@ -231,6 +240,7 @@ function AboutPage({ navigate }) {
         lede="A Hollywood, Florida–based construction and renovation company led by a licensed Florida Certified General Contractor."
         breadcrumbs={[{ label: "Home", to: "home" }, { label: "About" }]}
         navigate={navigate}
+        img={IMG.gallery}
       />
 
       <section className="section">
@@ -256,10 +266,10 @@ function AboutPage({ navigate }) {
               </p>
             </div>
             <aside className="about-lede__aside">
-              <ImagePlaceholder label="founder portrait — replace" ratio="4/5" tone="beige" />
+              <ImagePlaceholder src={IMG.consult2} alt="Nagy & Sons Builders reviewing renovation plans with a client in Hollywood, FL" ratio="4/5" tone="beige" />
               <div className="about-lede__caption">
-                <strong>Founder portrait</strong>
-                <span>placeholder — replace before launch</span>
+                <strong>Planning with our clients</strong>
+                <span>Consultation · Hollywood, FL</span>
               </div>
             </aside>
           </div>
@@ -326,6 +336,7 @@ function ContactPage({ navigate }) {
         lede="Tell us a little about your project and we'll respond within one business day."
         breadcrumbs={[{ label: "Home", to: "home" }, { label: "Contact" }]}
         navigate={navigate}
+        img={IMG.condo1}
       />
 
       <section className="section">

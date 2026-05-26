@@ -41,7 +41,7 @@ function HomePage({ navigate, tweaks }) {
             </div>
             <div className="hero__media">
               <div className="hero__img-wrap">
-                <ImagePlaceholder label="luxury kitchen interior — replace" ratio="4/5" tone="beige" className="hero__img"/>
+                <ImagePlaceholder src={IMG.kitchen3} eager alt="Luxury kitchen renovation by Nagy & Sons Builders in South Florida" ratio="4/5" tone="beige" className="hero__img"/>
                 <div className="hero__chip hero__chip--top">
                   <div className="hero__chip-num">15+</div>
                   <div className="hero__chip-lbl">Years building<br/>in South Florida</div>
@@ -86,14 +86,14 @@ function HomePage({ navigate, tweaks }) {
             </div>
           </div>
           <div className="hero__media hero__media--split">
-            <ImagePlaceholder label="luxury kitchen interior — replace" ratio="auto" tone="beige" style={{ height: "100%", aspectRatio: "auto" }}/>
+            <ImagePlaceholder src={IMG.kitchen3} eager alt="Luxury kitchen renovation by Nagy & Sons Builders in South Florida" ratio="auto" tone="beige" style={{ height: "100%", aspectRatio: "auto" }}/>
           </div>
         </section>
       )}
 
       {heroVariant === "image" && (
         <section className="hero hero--image" data-screen-label="Hero">
-          <ImagePlaceholder label="luxury kitchen / condo renovation — replace" ratio="auto" tone="beige" style={{ position: "absolute", inset: 0, aspectRatio: "auto", borderRadius: 0 }} className="hero__bg"/>
+          <ImagePlaceholder src={IMG.condo3} eager alt="" ratio="auto" tone="beige" style={{ position: "absolute", inset: 0, aspectRatio: "auto", borderRadius: 0 }} className="hero__bg"/>
           <div className="hero__overlay" />
           <div className="hero__inner hero__inner--centered">
             <div className="eyebrow eyebrow--gold">Hollywood, FL · South Florida</div>
@@ -176,6 +176,7 @@ function HomePage({ navigate, tweaks }) {
             <ServiceCard
               size="lg"
               tone="beige"
+              img={IMG.condo1}
               title="Condo Renovations"
               description="Interior condo upgrades, flooring, drywall, kitchens, bathrooms, layout changes, finishes, and association-friendly renovation coordination."
               bullets={["Building access planning", "Association documentation", "Elevator + delivery logistics"]}
@@ -184,6 +185,7 @@ function HomePage({ navigate, tweaks }) {
             <ServiceCard
               size="lg"
               tone="cream"
+              img={IMG.kitchen1}
               title="Kitchen Remodeling"
               description="Cabinets, countertops, lighting, backsplash, flooring, appliance coordination, layout changes, and complete kitchen transformations."
               bullets={["Cabinetry + countertops", "Layout reconfiguration", "Appliance + lighting plan"]}
@@ -192,6 +194,7 @@ function HomePage({ navigate, tweaks }) {
             <ServiceCard
               size="lg"
               tone="green"
+              img={IMG.bathroom1}
               title="Bathroom Remodeling"
               description="Showers, tile, vanities, lighting, fixtures, waterproofing coordination, and complete bathroom remodels."
               bullets={["Shower + tile work", "Vanity + fixture install", "Waterproofing coordination"]}
@@ -202,6 +205,7 @@ function HomePage({ navigate, tweaks }) {
             <ServiceCard
               size="sm"
               tone="charcoal"
+              img={IMG.condo3}
               title="Full Interior Renovations"
               description="Complete interior improvements for condos, townhomes, investment properties, and single-family homes."
             />
@@ -251,7 +255,7 @@ function HomePage({ navigate, tweaks }) {
                 <div><strong>Interior</strong><span>Whole-unit renovation projects</span></div>
               </div>
             </div>
-            <ImagePlaceholder label="project site — replace" ratio="16/10" tone="gold" />
+            <ImagePlaceholder src={IMG.consult1} alt="Nagy & Sons Builders reviewing renovation plans and finish samples with a client" ratio="16/10" tone="gold" />
           </div>
         </div>
       </section>
@@ -283,17 +287,17 @@ function HomePage({ navigate, tweaks }) {
           />
           <div className="ptype-grid">
             {[
-              { t: "Condo unit renovations", d: "From dated to dialed-in.", img: "beige" },
-              { t: "Kitchen remodels", d: "Cabinets, counters, layout.", img: "green" },
-              { t: "Bathroom remodels", d: "Showers, tile, vanities.", img: "cream" },
-              { t: "Flooring & finish upgrades", d: "Tile, LVP, paint, trim.", img: "beige" },
-              { t: "Investor property improvements", d: "Turn-key for resale or rent.", img: "gold" },
-              { t: "Full interior renovations", d: "Whole-unit transformations.", img: "charcoal" },
-              { t: "Pre-sale property upgrades", d: "Market-ready refresh.", img: "cream" },
-              { t: "Post-purchase renovations", d: "Make it yours, move-in ready.", img: "green" },
+              { t: "Condo unit renovations", d: "From dated to dialed-in.", img: "beige", photo: IMG.condo2 },
+              { t: "Kitchen remodels", d: "Cabinets, counters, layout.", img: "green", photo: IMG.kitchen2 },
+              { t: "Bathroom remodels", d: "Showers, tile, vanities.", img: "cream", photo: IMG.bathroom2 },
+              { t: "Flooring & finish upgrades", d: "Tile, LVP, paint, trim.", img: "beige", photo: IMG.kitchen4 },
+              { t: "Investor property improvements", d: "Turn-key for resale or rent.", img: "gold", photo: IMG.condo1 },
+              { t: "Full interior renovations", d: "Whole-unit transformations.", img: "charcoal", photo: IMG.condo3 },
+              { t: "Pre-sale property upgrades", d: "Market-ready refresh.", img: "cream", photo: IMG.bathroom3 },
+              { t: "Post-purchase renovations", d: "Make it yours, move-in ready.", img: "green", photo: IMG.consult2 },
             ].map((p) => (
               <div key={p.t} className="ptype">
-                <ImagePlaceholder label={`${p.t.toLowerCase()} — replace`} ratio="5/4" tone={p.img} />
+                <ImagePlaceholder src={p.photo} alt={`${p.t} — Nagy & Sons Builders, South Florida`} label={`${p.t.toLowerCase()} — replace`} ratio="5/4" tone={p.img} />
                 <div className="ptype__body">
                   <h4>{p.t}</h4>
                   <p>{p.d}</p>

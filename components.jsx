@@ -6,7 +6,16 @@ const { useState, useEffect, useRef } = React;
 
 // ─── ImagePlaceholder ────────────────────────────────────────────
 // Subtle striped SVG placeholder with monospace label
-function ImagePlaceholder({ label = "image", ratio = "4/3", tone = "beige", style = {}, className = "" }) {
+function ImagePlaceholder({ label = "image", ratio = "4/3", tone = "beige", style = {}, className = "", src, alt, eager = false }) {
+  // When a real photo is provided, render it (cropped to the same box).
+  if (src) {
+    const altText = alt || label.replace(/\s*—\s*replace\s*$/i, "");
+    return (
+      <div className={`img-ph img-ph--photo ${className}`} style={{ aspectRatio: ratio, ...style }}>
+        <img src={src} alt={altText} loading={eager ? "eager" : "lazy"} decoding="async" />
+      </div>
+    );
+  }
   const tones = {
     beige:   { bg: "var(--beige)",    stripe: "rgba(31,58,46,0.05)", text: "var(--green-deep)" },
     green:   { bg: "var(--green-deep)", stripe: "rgba(201,168,106,0.10)", text: "var(--gold)" },
@@ -30,6 +39,23 @@ function ImagePlaceholder({ label = "image", ratio = "4/3", tone = "beige", styl
     </div>
   );
 }
+
+// Central image manifest — keeps src paths in one place
+const IMG = {
+  kitchen1: "assets/kitchen-1.jpg",
+  kitchen2: "assets/kitchen-2.jpg",
+  kitchen3: "assets/kitchen-3.jpg",
+  kitchen4: "assets/kitchen-4.jpg",
+  bathroom1: "assets/bathroom-1.jpg",
+  bathroom2: "assets/bathroom-2.jpg",
+  bathroom3: "assets/bathroom-3.jpg",
+  condo1: "assets/condo-1.jpg",
+  condo2: "assets/condo-2.jpg",
+  condo3: "assets/condo-3.jpg",
+  consult1: "assets/consultation-1.jpg",
+  consult2: "assets/consultation-2.jpg",
+  gallery: "assets/gallery.jpg",
+};
 
 // ─── CTAButton ───────────────────────────────────────────────────
 function CTAButton({ children, onClick, href, variant = "primary", size = "md", icon = true, ...rest }) {
@@ -71,55 +97,59 @@ function Header({ route, navigate, scrolled }) {
     { label: "Contact", to: "contact" },
   ];
   return (
-    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`} data-screen-label="Header">
-      <div className="site-header__inner">
-        <a className="brand" href="#home" onClick={(e) => { e.preventDefault(); navigate("home"); }}>
-          <span className="brand__mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32" width="32" height="32" fill="none">
-              <path d="M4 15 16 5l12 10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M7 13v14h18V13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M13 27v-7h6v7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </span>
-          <span className="brand__text">
-            <span className="brand__name">Nagy &amp; Sons</span>
-            <span className="brand__sub">Builders · CGC1513757</span>
-          </span>
-        </a>
-        <nav className="nav" aria-label="Main">
-          {links.map((l) => (
-            <a
-              key={l.to}
-              href={`#${l.to}`}
-              className={`nav__link ${route === l.to ? "is-active" : ""}`}
-              onClick={(e) => { e.preventDefault(); navigate(l.to); }}
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
-        <div className="site-header__actions">
-          <a className="site-header__phone" href="tel:+19546215285">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
-            </svg>
-            (954) 621-5285
+    <>
+      <header className={`site-header ${scrolled ? "is-scrolled" : ""}`} data-screen-label="Header">
+        <div className="site-header__inner">
+          <a className="brand" href="#home" onClick={(e) => { e.preventDefault(); navigate("home"); }}>
+            <span className="brand__mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="32" height="32" fill="none">
+                <path d="M4 15 16 5l12 10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M7 13v14h18V13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M13 27v-7h6v7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+            <span className="brand__text">
+              <span className="brand__name">Nagy &amp; Sons</span>
+              <span className="brand__sub">Builders · CGC1513757</span>
+            </span>
           </a>
-          <CTAButton variant="primary" size="sm" onClick={() => navigate("contact")}>
-            Get Free Estimate
-          </CTAButton>
-          <button
-            className="hamburger"
-            aria-label="Open menu"
-            onClick={() => setMobileOpen(true)}
-          >
-            <span></span><span></span><span></span>
-          </button>
+          <nav className="nav" aria-label="Main">
+            {links.map((l) => (
+              <a
+                key={l.to}
+                href={`#${l.to}`}
+                className={`nav__link ${route === l.to ? "is-active" : ""}`}
+                onClick={(e) => { e.preventDefault(); navigate(l.to); }}
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+          <div className="site-header__actions">
+            <a className="site-header__phone" href="tel:+19546215285">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
+              </svg>
+              (954) 621-5285
+            </a>
+            <CTAButton variant="primary" size="sm" onClick={() => navigate("contact")}>
+              Get Free Estimate
+            </CTAButton>
+            <button
+              className="hamburger"
+              aria-label="Open menu"
+              aria-controls="mobile-menu"
+              aria-expanded={mobileOpen}
+              onClick={() => setMobileOpen(true)}
+            >
+              <span></span><span></span><span></span>
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
       {/* mobile drawer */}
       {mobileOpen && (
-        <div className="mobile-drawer" onClick={() => setMobileOpen(false)}>
+        <div id="mobile-menu" className="mobile-drawer" onClick={() => setMobileOpen(false)}>
           <div className="mobile-drawer__panel" onClick={(e) => e.stopPropagation()}>
             <div className="mobile-drawer__head">
               <span className="brand__name">Nagy &amp; Sons</span>
@@ -154,7 +184,7 @@ function Header({ route, navigate, scrolled }) {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }
 
@@ -235,10 +265,10 @@ function Footer({ navigate }) {
 }
 
 // ─── ServiceCard ─────────────────────────────────────────────────
-function ServiceCard({ icon, title, description, bullets, onClick, size = "lg", tone = "beige" }) {
+function ServiceCard({ icon, title, description, bullets, onClick, size = "lg", tone = "beige", img }) {
   return (
     <article className={`svc-card svc-card--${size}`} onClick={onClick}>
-      <ImagePlaceholder label={`${title.toLowerCase()} — replace`} ratio="4/3" tone={tone} className="svc-card__img" />
+      <ImagePlaceholder label={`${title.toLowerCase()} — replace`} ratio="4/3" tone={tone} className="svc-card__img" src={img} alt={`${title} — Nagy & Sons Builders, South Florida`} />
       <div className="svc-card__body">
         <h3 className="svc-card__title">{title}</h3>
         <p className="svc-card__desc">{description}</p>
@@ -487,7 +517,6 @@ function StickyEstimateBar({ show, navigate }) {
       <div className="sticky-bar__inner">
         <div className="sticky-bar__msg">
           <span className="sticky-bar__eyebrow">Free estimate · 1-day response</span>
-          <span className="sticky-bar__txt">Licensed Florida CGC1513757 · Insured · Hollywood, FL</span>
         </div>
         <div className="sticky-bar__actions">
           <a className="sticky-bar__phone" href="tel:+19546215285" aria-label="Call Nagy and Sons Builders">
@@ -503,7 +532,7 @@ function StickyEstimateBar({ show, navigate }) {
 }
 
 // ─── PageHero (reusable hero for sub-pages) ──────────────────────
-function PageHero({ eyebrow, title, lede, breadcrumbs, navigate }) {
+function PageHero({ eyebrow, title, lede, breadcrumbs, navigate, img }) {
   return (
     <section className="page-hero" data-screen-label={`Hero — ${title}`}>
       <div className="page-hero__inner">
@@ -536,7 +565,7 @@ function PageHero({ eyebrow, title, lede, breadcrumbs, navigate }) {
         </div>
       </div>
       <div className="page-hero__deco" aria-hidden="true">
-        <ImagePlaceholder label={`${title.toLowerCase()} — replace`} ratio="auto" tone="gold" style={{ height: "100%", aspectRatio: "auto" }} />
+        <ImagePlaceholder label={`${title.toLowerCase()} — replace`} ratio="auto" tone="gold" style={{ height: "100%", aspectRatio: "auto" }} src={img} alt="" />
       </div>
     </section>
   );
@@ -568,5 +597,5 @@ function ContentCTA({ navigate, title = "Ready to plan your renovation?", lede =
 Object.assign(window, {
   ImagePlaceholder, CTAButton, SectionHeading, Header, Footer,
   ServiceCard, ProcessStep, ServiceAreaGrid, FAQItem, LeadForm,
-  StickyEstimateBar, PageHero, ContentCTA,
+  StickyEstimateBar, PageHero, ContentCTA, IMG,
 });

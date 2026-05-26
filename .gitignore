@@ -21,3 +21,7 @@ build/
 # Logs
 *.log
 npm-debug.log*
+
+# Original full-size source images (optimized .jpg versions are committed)
+assets/ChatGPT Image*.png
+uploads/
