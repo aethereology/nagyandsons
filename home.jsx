@@ -25,9 +25,9 @@ function HomePage({ navigate, tweaks }) {
               </p>
               <div className="hero__actions">
                 <CTAButton variant="gold" size="lg" onClick={() => navigate("contact")}>Get My Free Estimate</CTAButton>
-                <a className="cta cta--ghost-light cta--lg" href="tel:+1XXXXXXXXXX" aria-label="Call Nagy and Sons Builders">
+                <a className="cta cta--ghost-light cta--lg" href="tel:+19546215285" aria-label="Call Nagy and Sons Builders">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>
-                  <span>Call (XXX) XXX-XXXX</span>
+                  <span>Call (954) 621-5285</span>
                 </a>
               </div>
               <div className="hero__promise">
@@ -71,9 +71,9 @@ function HomePage({ navigate, tweaks }) {
             <p className="hero__lede">A licensed Florida Certified General Contractor based in Hollywood, FL — building condo renovations, kitchen remodels, bathroom remodels, and whole-unit interior renovations across Broward and Miami-Dade.</p>
             <div className="hero__actions">
               <CTAButton variant="primary" size="lg" onClick={() => navigate("contact")}>Get My Free Estimate</CTAButton>
-              <a className="cta cta--ghost cta--lg" href="tel:+1XXXXXXXXXX" aria-label="Call Nagy and Sons Builders">
+              <a className="cta cta--ghost cta--lg" href="tel:+19546215285" aria-label="Call Nagy and Sons Builders">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>
-                <span>Call (XXX) XXX-XXXX</span>
+                <span>Call (954) 621-5285</span>
               </a>
             </div>
             <div className="hero__promise hero__promise--light">
@@ -101,9 +101,9 @@ function HomePage({ navigate, tweaks }) {
             <p className="hero__lede">A licensed Florida Certified General Contractor based in Hollywood, FL — building condo renovations, kitchen remodels, bathroom remodels, and whole-unit interior renovations across Broward and Miami-Dade.</p>
             <div className="hero__actions hero__actions--center">
               <CTAButton variant="gold" size="lg" onClick={() => navigate("contact")}>Get My Free Estimate</CTAButton>
-              <a className="cta cta--ghost-light cta--lg" href="tel:+1XXXXXXXXXX" aria-label="Call Nagy and Sons Builders">
+              <a className="cta cta--ghost-light cta--lg" href="tel:+19546215285" aria-label="Call Nagy and Sons Builders">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>
-                <span>Call (XXX) XXX-XXXX</span>
+                <span>Call (954) 621-5285</span>
               </a>
             </div>
             <div className="hero__promise" style={{textAlign:"center"}}>
@@ -369,7 +369,7 @@ function HomePage({ navigate, tweaks }) {
             <div className="form-side__contact">
               <div>
                 <div className="form-side__lbl">Call</div>
-                <a href="tel:+1XXXXXXXXXX">(XXX) XXX-XXXX</a>
+                <a href="tel:+19546215285">(954) 621-5285</a>
               </div>
               <div>
                 <div className="form-side__lbl">Email</div>

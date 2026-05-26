@@ -318,7 +318,9 @@ em { font-style: italic; color: var(--gold); font-feature-settings: "kern" 1; }
 /* Mobile drawer */
 .mobile-drawer {
   position: fixed; inset: 0;
-  background: rgba(20,20,18,0.5);
+  background: rgba(15,18,15,0.62);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
   z-index: 200;
   animation: fade-in .2s ease;
 }
@@ -327,8 +329,12 @@ em { font-style: italic; color: var(--gold); font-feature-settings: "kern" 1; }
   top: 0; right: 0; bottom: 0;
   width: min(360px, 90vw);
   background: var(--cream-soft);
+  background-color: #fbfaf7;
+  border-left: 1px solid var(--line);
+  box-shadow: -24px 0 60px rgba(0,0,0,0.28);
   display: flex; flex-direction: column;
   padding: 24px;
+  overflow-y: auto;
   animation: slide-in .25s var(--ease);
 }
 @keyframes fade-in { from { opacity: 0; } }
@@ -1429,8 +1435,20 @@ em { font-style: italic; color: var(--gold); font-feature-settings: "kern" 1; }
   padding: 8px 12px;
 }
 @media (max-width: 700px) {
-  .sticky-bar__txt { display: none; }
-  .sticky-bar__inner { padding-left: 16px; }
+  /* Drop the message block entirely so the two actions can't overlap */
+  .sticky-bar__msg { display: none; }
+  .sticky-bar__inner {
+    padding: 8px;
+    gap: 8px;
+    justify-content: stretch;
+  }
+  .sticky-bar__actions { flex: 1; justify-content: space-between; gap: 8px; }
+  .sticky-bar__phone {
+    flex: 0 0 auto;
+    justify-content: center;
+    padding: 10px 14px;
+  }
+  .sticky-bar__actions .cta { flex: 1; justify-content: center; }
 }
 
 /* ─── Footer ───────────────────────────────────────────────────── */

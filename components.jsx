@@ -75,9 +75,10 @@ function Header({ route, navigate, scrolled }) {
       <div className="site-header__inner">
         <a className="brand" href="#home" onClick={(e) => { e.preventDefault(); navigate("home"); }}>
           <span className="brand__mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32" width="32" height="32">
-              <rect x="1" y="1" width="30" height="30" rx="4" fill="none" stroke="currentColor" strokeWidth="1.2"/>
-              <path d="M8 23V9l8 11V9M20 9v14h4" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg viewBox="0 0 32 32" width="32" height="32" fill="none">
+              <path d="M4 15 16 5l12 10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M7 13v14h18V13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M13 27v-7h6v7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </span>
           <span className="brand__text">
@@ -98,11 +99,11 @@ function Header({ route, navigate, scrolled }) {
           ))}
         </nav>
         <div className="site-header__actions">
-          <a className="site-header__phone" href="tel:+1XXXXXXXXXX">
+          <a className="site-header__phone" href="tel:+19546215285">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
             </svg>
-            (XXX) XXX-XXXX
+            (954) 621-5285
           </a>
           <CTAButton variant="primary" size="sm" onClick={() => navigate("contact")}>
             Get Free Estimate
@@ -141,11 +142,11 @@ function Header({ route, navigate, scrolled }) {
               <CTAButton variant="primary" onClick={() => { navigate("contact"); setMobileOpen(false); }}>
                 Get Free Estimate
               </CTAButton>
-              <a className="mobile-drawer__phone" href="tel:+1XXXXXXXXXX">
+              <a className="mobile-drawer__phone" href="tel:+19546215285">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style={{marginRight: 6, verticalAlign: "-2px"}}>
                   <path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
                 </svg>
-                Call (XXX) XXX-XXXX
+                Call (954) 621-5285
               </a>
               <div className="mobile-drawer__lic">Licensed &amp; Insured · Florida CGC1513757</div>
               <div className="mobile-drawer__note">Free estimate · We reply within 1 business day.</div>
@@ -165,9 +166,10 @@ function Footer({ navigate }) {
         <div className="site-footer__col site-footer__brand">
           <div className="brand brand--lg">
             <span className="brand__mark" aria-hidden="true">
-              <svg viewBox="0 0 32 32" width="36" height="36">
-                <rect x="1" y="1" width="30" height="30" rx="4" fill="none" stroke="currentColor" strokeWidth="1.2"/>
-                <path d="M8 23V9l8 11V9M20 9v14h4" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg viewBox="0 0 32 32" width="36" height="36" fill="none">
+                <path d="M4 15 16 5l12 10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M7 13v14h18V13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M13 27v-7h6v7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </span>
             <span className="brand__text">
@@ -215,7 +217,7 @@ function Footer({ navigate }) {
         <div className="site-footer__col">
           <div className="site-footer__h">Contact</div>
           <ul>
-            <li><a href="tel:+1XXXXXXXXXX">(XXX) XXX-XXXX</a></li>
+            <li><a href="tel:+19546215285">(954) 621-5285</a></li>
             <li><a href="mailto:info@nagysonsbuilders.com">info@nagysonsbuilders.com</a></li>
             <li>Hollywood, Florida</li>
           </ul>
@@ -488,9 +490,9 @@ function StickyEstimateBar({ show, navigate }) {
           <span className="sticky-bar__txt">Licensed Florida CGC1513757 · Insured · Hollywood, FL</span>
         </div>
         <div className="sticky-bar__actions">
-          <a className="sticky-bar__phone" href="tel:+1XXXXXXXXXX" aria-label="Call Nagy and Sons Builders">
+          <a className="sticky-bar__phone" href="tel:+19546215285" aria-label="Call Nagy and Sons Builders">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>
-            <span className="sticky-bar__phone-txt">Call (XXX) XXX-XXXX</span>
+            <span className="sticky-bar__phone-txt">Call (954) 621-5285</span>
             <span className="sticky-bar__phone-short">Call</span>
           </a>
           <CTAButton variant="gold" size="sm" onClick={() => navigate("contact")}>Get Free Estimate</CTAButton>
@@ -524,9 +526,9 @@ function PageHero({ eyebrow, title, lede, breadcrumbs, navigate }) {
         {lede && <p className="page-hero__lede">{lede}</p>}
         <div className="page-hero__actions">
           <CTAButton variant="gold" onClick={() => navigate("contact")}>Get Free Estimate</CTAButton>
-          <a className="cta cta--ghost-light page-hero__call" href="tel:+1XXXXXXXXXX">
+          <a className="cta cta--ghost-light page-hero__call" href="tel:+19546215285">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>
-            <span>Call (XXX) XXX-XXXX</span>
+            <span>Call (954) 621-5285</span>
           </a>
         </div>
         <div className="page-hero__lic">
@@ -552,9 +554,9 @@ function ContentCTA({ navigate, title = "Ready to plan your renovation?", lede =
         </div>
         <div className="content-cta__actions">
           <CTAButton variant="gold" size="lg" onClick={() => navigate("contact")}>Get Free Estimate</CTAButton>
-          <a href="tel:+1XXXXXXXXXX" className="content-cta__phone" aria-label="Call Nagy and Sons Builders">
+          <a href="tel:+19546215285" className="content-cta__phone" aria-label="Call Nagy and Sons Builders">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style={{marginRight: 6, verticalAlign: "-2px"}}><path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>
-            (XXX) XXX-XXXX
+            (954) 621-5285
           </a>
         </div>
       </div>

@@ -333,7 +333,7 @@ function ContactPage({ navigate }) {
           <div className="form-side">
             <div className="contact-block">
               <div className="contact-block__lbl">Call</div>
-              <a className="contact-block__big" href="tel:+1XXXXXXXXXX">(XXX) XXX-XXXX</a>
+              <a className="contact-block__big" href="tel:+19546215285">(954) 621-5285</a>
               <div className="contact-block__sub">Mon–Fri · Hollywood, FL</div>
             </div>
             <div className="contact-block">
@@ -396,7 +396,7 @@ function ContactPage({ navigate }) {
             />
             <FAQItem
               q="How do I request an estimate?"
-              a="Submit the form on this page, call (XXX) XXX-XXXX, or email info@nagysonsbuilders.com. We'll respond within one business day to schedule a consultation or site visit."
+              a="Submit the form on this page, call (954) 621-5285, or email info@nagysonsbuilders.com. We'll respond within one business day to schedule a consultation or site visit."
             />
             <FAQItem
               q="Can you handle larger renovation projects?"
