@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Nagy &amp; Sons Builders — Condo, Kitchen &amp; Bathroom Renovations in South Florida</title>
+  <meta name="description" content="Licensed Florida Certified General Contractor (CGC1513757) specializing in condo renovations, kitchen remodels, and bathroom remodels across Hollywood, Broward, and South Florida." />
+  <meta name="theme-color" content="#1f3a2e" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nagy & Sons Builders — South Florida Renovation Contractor" />
+  <meta property="og:description" content="Condo, kitchen, and bathroom renovations across Hollywood, Broward, and South Florida. Florida CGC1513757." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- LocalBusiness schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GeneralContractor",
+    "name": "Nagy & Sons Builders",
+    "image": "",
+    "description": "Florida Certified General Contractor specializing in condo, kitchen, and bathroom renovations across South Florida.",
+    "url": "",
+    "telephone": "+1-XXX-XXX-XXXX",
+    "email": "info@nagysonsbuilders.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hollywood",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "areaServed": [
+      "Hollywood, FL", "Hallandale Beach, FL", "Aventura, FL",
+      "Fort Lauderdale, FL", "Dania Beach, FL", "Pembroke Pines, FL",
+      "Broward County, FL", "Miami-Dade County, FL"
+    ],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "license",
+      "name": "Florida Certified General Contractor",
+      "identifier": "CGC1513757"
+    },
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Condo Renovation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kitchen Remodeling" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bathroom Remodeling" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Full Interior Renovation" } }
+    ]
+  }
+  </script>
+
+  <!-- FAQPage schema (contact page FAQ) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Do you work on condos?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — condo renovations are one of our core services. We work with South Florida condo associations on documentation, building access, working hours, and elevator scheduling." } },
+      { "@type": "Question", "name": "Do you remodel kitchens and bathrooms?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — kitchen and bathroom remodels are core services, from a finishes refresh to a full down-to-studs renovation." } },
+      { "@type": "Question", "name": "Are you licensed?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — Florida Certified General Contractor, license CGC1513757, verifiable through the Florida DBPR." } },
+      { "@type": "Question", "name": "What areas do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "Hollywood, Hallandale Beach, Aventura, Fort Lauderdale, Dania Beach, Pembroke Pines, Broward County, Miami-Dade, and surrounding South Florida communities." } },
+      { "@type": "Question", "name": "How do I request an estimate?", "acceptedAnswer": { "@type": "Answer", "text": "Submit the contact form, call (XXX) XXX-XXXX, or email info@nagysonsbuilders.com. We respond within one business day." } },
+      { "@type": "Question", "name": "Can you handle larger renovation projects?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — as a Florida Certified General Contractor, we're licensed for larger, multi-trade, and whole-unit renovation scopes." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <!-- React + Babel -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- Tweaks panel + components + pages + app -->
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="components.jsx"></script>
+  <script type="text/babel" src="home.jsx"></script>
+  <script type="text/babel" src="pages.jsx"></script>
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>
