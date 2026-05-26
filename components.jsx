@@ -536,36 +536,40 @@ function PageHero({ eyebrow, title, lede, breadcrumbs, navigate, img }) {
   return (
     <section className="page-hero" data-screen-label={`Hero — ${title}`}>
       <div className="page-hero__inner">
-        {breadcrumbs && (
-          <nav className="crumbs" aria-label="Breadcrumb">
-            {breadcrumbs.map((c, i) => (
-              <React.Fragment key={c.label}>
-                {i > 0 && <span className="crumbs__sep">/</span>}
-                {c.to ? (
-                  <a href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); }}>{c.label}</a>
-                ) : (
-                  <span>{c.label}</span>
-                )}
-              </React.Fragment>
-            ))}
-          </nav>
+        <div className="page-hero__copy">
+          {breadcrumbs && (
+            <nav className="crumbs" aria-label="Breadcrumb">
+              {breadcrumbs.map((c, i) => (
+                <React.Fragment key={c.label}>
+                  {i > 0 && <span className="crumbs__sep">/</span>}
+                  {c.to ? (
+                    <a href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); }}>{c.label}</a>
+                  ) : (
+                    <span>{c.label}</span>
+                  )}
+                </React.Fragment>
+              ))}
+            </nav>
+          )}
+          {eyebrow && <div className="eyebrow eyebrow--gold">{eyebrow}</div>}
+          <h1 className="page-hero__title">{title}</h1>
+          {lede && <p className="page-hero__lede">{lede}</p>}
+          <div className="page-hero__actions">
+            <CTAButton variant="gold" onClick={() => navigate("contact")}>Get Free Estimate</CTAButton>
+            <a className="cta cta--ghost-light page-hero__call" href="tel:+19546215285">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>
+              <span>Call (954) 621-5285</span>
+            </a>
+          </div>
+          <div className="page-hero__lic">
+            <span className="lic-pill__dot" /> Licensed &amp; Insured · Florida CGC1513757 · Free, no-obligation estimate
+          </div>
+        </div>
+        {img && (
+          <div className="page-hero__deco" aria-hidden="true">
+            <ImagePlaceholder ratio="auto" tone="gold" style={{ height: "100%", aspectRatio: "auto" }} src={img} alt="" />
+          </div>
         )}
-        {eyebrow && <div className="eyebrow eyebrow--gold">{eyebrow}</div>}
-        <h1 className="page-hero__title">{title}</h1>
-        {lede && <p className="page-hero__lede">{lede}</p>}
-        <div className="page-hero__actions">
-          <CTAButton variant="gold" onClick={() => navigate("contact")}>Get Free Estimate</CTAButton>
-          <a className="cta cta--ghost-light page-hero__call" href="tel:+19546215285">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>
-            <span>Call (954) 621-5285</span>
-          </a>
-        </div>
-        <div className="page-hero__lic">
-          <span className="lic-pill__dot" /> Licensed &amp; Insured · Florida CGC1513757 · Free, no-obligation estimate
-        </div>
-      </div>
-      <div className="page-hero__deco" aria-hidden="true">
-        <ImagePlaceholder label={`${title.toLowerCase()} — replace`} ratio="auto" tone="gold" style={{ height: "100%", aspectRatio: "auto" }} src={img} alt="" />
       </div>
     </section>
   );

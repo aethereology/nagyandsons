@@ -1046,10 +1046,19 @@ em { font-style: italic; color: var(--gold); font-feature-settings: "kern" 1; }
 .page-hero__inner {
   position: relative;
   z-index: 2;
-  max-width: var(--container-max);
+  width: 100%;
   margin: 0 auto;
   padding: 0 var(--container-pad);
-  max-width: 880px;
+  max-width: var(--container-max);
+  display: grid;
+  grid-template-columns: minmax(0, 0.58fr) minmax(280px, 0.42fr);
+  column-gap: clamp(28px, 5vw, 80px);
+  align-items: center;
+}
+.page-hero__copy {
+  grid-column: 1;
+  min-width: 0;
+  max-width: 690px;
 }
 .page-hero__title {
   font-family: var(--font-display);
@@ -1076,15 +1085,19 @@ em { font-style: italic; color: var(--gold); font-feature-settings: "kern" 1; }
   color: var(--gold);
 }
 .page-hero__deco {
-  position: absolute;
-  right: 0; top: 0; bottom: 0;
-  width: 38%;
-  z-index: 1;
-  opacity: 0.55;
+  grid-column: 2;
+  position: relative;
+  align-self: stretch;
+  min-height: 340px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
 }
-.page-hero__deco .img-ph { border-radius: 0; height: 100%; }
+.page-hero__deco .img-ph { border-radius: var(--radius-lg); height: 100%; }
 @media (max-width: 900px) {
   .page-hero__deco { display: none; }
+  .page-hero__inner { display: block; max-width: 880px; }
+  .page-hero__copy { max-width: none; }
 }
 
 .crumbs {
@@ -1717,10 +1730,6 @@ body[data-type="modern"] em { font-style: italic; }
   object-fit: cover;
   display: block;
 }
-/* page-hero decorative photo reads better a touch brighter than the striped fill */
-.page-hero__deco .img-ph--photo { opacity: 1; }
-.page-hero__deco { opacity: 0.7; }
-
 /* ─── Responsive hardening ─────────────────────────────────────── */
 /* Guard against any stray horizontal overflow. Applied to <html> (the
    scroll root) so it does NOT break the position:sticky header. */
