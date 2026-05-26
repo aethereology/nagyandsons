@@ -305,10 +305,13 @@ em { font-style: italic; color: var(--gold); font-feature-settings: "kern" 1; }
 @media (max-width: 1000px) {
   .nav { display: none; }
   .site-header__phone { display: none; }
+  .hamburger { display: flex; }   /* show menu the moment the nav hides — no tablet dead-zone */
 }
 @media (max-width: 700px) {
-  .hamburger { display: flex; }
   .brand__sub { display: none; }
+}
+@media (max-width: 520px) {
+  /* on phones the persistent CTA lives in the bottom sticky bar + drawer */
   .site-header__actions .cta { display: none; }
 }
 
@@ -1684,4 +1687,54 @@ body[data-type="modern"] em { font-style: italic; }
   .cta--sm { padding: 12px 18px; font-size: 13.5px; }
   .cta { min-height: 44px; }
   .site-header__phone { min-height: 44px; display: inline-flex; align-items: center; }
+}
+
+/* ─── Responsive hardening ─────────────────────────────────────── */
+/* Guard against any stray horizontal overflow. Applied to <html> (the
+   scroll root) so it does NOT break the position:sticky header. */
+html { overflow-x: hidden; }
+img, video { max-width: 100%; height: auto; }
+
+/* Prevent iOS Safari from auto-zooming when a form field gains focus
+   (triggers whenever the input font-size is below 16px). */
+@media (max-width: 560px) {
+  .field input,
+  .field select,
+  .field textarea { font-size: 16px; }
+}
+
+/* Tablet: show service cards 2-up before collapsing to a single column,
+   so the 3→1 jump gets an intermediate step. */
+@media (min-width: 561px) and (max-width: 900px) {
+  .svc-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Tablet: 2-up testimonials instead of jumping straight to one column. */
+@media (min-width: 601px) and (max-width: 900px) {
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Very small phones: trim the sticky bar so it never overflows. */
+@media (max-width: 520px) {
+  .sticky-bar { left: 10px; right: 10px; bottom: 10px; }
+  .sticky-bar__inner { gap: 12px; padding: 8px 8px 8px 18px; }
+  .sticky-bar__eyebrow { display: none; }
+}
+
+/* Landscape phones / very short viewports: let tall hero variants breathe
+   instead of locking to viewport-height minimums. */
+@media (max-height: 560px) and (max-width: 900px) {
+  .hero--split { min-height: auto; }
+  .hero--image { min-height: 0; padding: 72px 0; }
+  .hero__media--split { min-height: 40vh; }
+}
+
+/* Honor reduced-motion: stop the hero marquee + route/pop animations. */
+@media (prefers-reduced-motion: reduce) {
+  .hero__marquee-track { animation: none; }
+  .page,
+  .sticky-bar,
+  .mobile-drawer,
+  .mobile-drawer__panel { animation: none; }
+  html { scroll-behavior: auto; }
 }
