@@ -105,7 +105,7 @@ function Header({ route, navigate, scrolled }) {
             (XXX) XXX-XXXX
           </a>
           <CTAButton variant="primary" size="sm" onClick={() => navigate("contact")}>
-            Request Estimate
+            Get Free Estimate
           </CTAButton>
           <button
             className="hamburger"
@@ -139,10 +139,16 @@ function Header({ route, navigate, scrolled }) {
             </div>
             <div className="mobile-drawer__cta">
               <CTAButton variant="primary" onClick={() => { navigate("contact"); setMobileOpen(false); }}>
-                Request Estimate
+                Get Free Estimate
               </CTAButton>
-              <a className="mobile-drawer__phone" href="tel:+1XXXXXXXXXX">(XXX) XXX-XXXX</a>
-              <div className="mobile-drawer__lic">Florida CGC1513757</div>
+              <a className="mobile-drawer__phone" href="tel:+1XXXXXXXXXX">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style={{marginRight: 6, verticalAlign: "-2px"}}>
+                  <path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
+                </svg>
+                Call (XXX) XXX-XXXX
+              </a>
+              <div className="mobile-drawer__lic">Licensed &amp; Insured · Florida CGC1513757</div>
+              <div className="mobile-drawer__note">Free estimate · We reply within 1 business day.</div>
             </div>
           </div>
         </div>
@@ -176,6 +182,10 @@ function Footer({ navigate }) {
             <span className="lic-pill__dot" />
             Florida Certified General Contractor · CGC1513757
           </div>
+          <a className="lic-verify" href="https://www.myfloridalicense.com/wl11.asp?mode=1" target="_blank" rel="noopener noreferrer">
+            Verify license with the Florida DBPR
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 8l6-6M3 2h5v5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </a>
         </div>
 
         <div className="site-footer__col">
@@ -210,13 +220,13 @@ function Footer({ navigate }) {
             <li>Hollywood, Florida</li>
           </ul>
           <CTAButton variant="ghost-light" size="sm" onClick={() => navigate("contact")}>
-            Request Estimate
+            Get Free Estimate
           </CTAButton>
         </div>
       </div>
       <div className="site-footer__base">
         <div>© {new Date().getFullYear()} Nagy &amp; Sons Builders. All rights reserved.</div>
-        <div>Florida Certified General Contractor · CGC1513757</div>
+        <div>Licensed &amp; Insured · Florida Certified General Contractor · CGC1513757</div>
       </div>
     </footer>
   );
@@ -450,12 +460,17 @@ function LeadForm({ compact = false, dark = false }) {
           <textarea id="lf-msg" rows="4" value={data.message} onChange={(e) => update("message", e.target.value)} placeholder="A few details about the space, scope, or what you're hoping to achieve..." />
         </div>
       </div>
+      <div className="lead-form__trust">
+        <span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1l4 2v3.5c0 2.6-1.7 4.4-4 4.9-2.3-.5-4-2.3-4-4.9V3l4-2z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/><path d="M4.2 6l1.4 1.4L8 5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/></svg> Licensed &amp; Insured · CGC1513757</span>
+        <span>Free, no-obligation estimate</span>
+        <span>1-business-day response</span>
+      </div>
       <div className="lead-form__foot">
         <CTAButton variant={dark ? "gold" : "primary"} size="lg" onClick={handleSubmit}>
-          Request My Estimate
+          Get My Free Estimate
         </CTAButton>
         <p className="lead-form__disclaimer">
-          By submitting this form, you agree to be contacted about your renovation project.
+          By submitting this form, you agree to be contacted about your renovation project. We never share your information.
         </p>
       </div>
     </form>
@@ -466,18 +481,19 @@ function LeadForm({ compact = false, dark = false }) {
 function StickyEstimateBar({ show, navigate }) {
   if (!show) return null;
   return (
-    <div className="sticky-bar" role="region" aria-label="Get a quick estimate">
+    <div className="sticky-bar" role="region" aria-label="Get a free estimate">
       <div className="sticky-bar__inner">
         <div className="sticky-bar__msg">
-          <span className="sticky-bar__eyebrow">Free estimate</span>
-          <span className="sticky-bar__txt">Plan your renovation with a licensed Florida CGC.</span>
+          <span className="sticky-bar__eyebrow">Free estimate · 1-day response</span>
+          <span className="sticky-bar__txt">Licensed Florida CGC1513757 · Insured · Hollywood, FL</span>
         </div>
         <div className="sticky-bar__actions">
-          <a className="sticky-bar__phone" href="tel:+1XXXXXXXXXX">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>
-            Call
+          <a className="sticky-bar__phone" href="tel:+1XXXXXXXXXX" aria-label="Call Nagy and Sons Builders">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>
+            <span className="sticky-bar__phone-txt">Call (XXX) XXX-XXXX</span>
+            <span className="sticky-bar__phone-short">Call</span>
           </a>
-          <CTAButton variant="gold" size="sm" onClick={() => navigate("contact")}>Request Estimate</CTAButton>
+          <CTAButton variant="gold" size="sm" onClick={() => navigate("contact")}>Get Free Estimate</CTAButton>
         </div>
       </div>
     </div>
@@ -507,13 +523,14 @@ function PageHero({ eyebrow, title, lede, breadcrumbs, navigate }) {
         <h1 className="page-hero__title">{title}</h1>
         {lede && <p className="page-hero__lede">{lede}</p>}
         <div className="page-hero__actions">
-          <CTAButton variant="gold" onClick={() => navigate("contact")}>Request an estimate</CTAButton>
-          <CTAButton variant="ghost-light" onClick={() => { document.getElementById("page-body")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} icon={false}>
-            Learn more
-          </CTAButton>
+          <CTAButton variant="gold" onClick={() => navigate("contact")}>Get Free Estimate</CTAButton>
+          <a className="cta cta--ghost-light page-hero__call" href="tel:+1XXXXXXXXXX">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>
+            <span>Call (XXX) XXX-XXXX</span>
+          </a>
         </div>
         <div className="page-hero__lic">
-          <span className="lic-pill__dot" /> Florida Certified General Contractor · CGC1513757
+          <span className="lic-pill__dot" /> Licensed &amp; Insured · Florida CGC1513757 · Free, no-obligation estimate
         </div>
       </div>
       <div className="page-hero__deco" aria-hidden="true">
@@ -524,18 +541,21 @@ function PageHero({ eyebrow, title, lede, breadcrumbs, navigate }) {
 }
 
 // ─── ContentCTA (mid-page CTA strip) ─────────────────────────────
-function ContentCTA({ navigate, title = "Ready to plan your renovation?", lede = "Share a few project details and we'll respond within one business day." }) {
+function ContentCTA({ navigate, title = "Ready to plan your renovation?", lede = "Share a few project details — a licensed Florida CGC will respond within one business day with next steps." }) {
   return (
     <section className="content-cta">
       <div className="content-cta__inner">
         <div>
-          <div className="eyebrow eyebrow--gold">Free estimate</div>
+          <div className="eyebrow eyebrow--gold">Free estimate · 1-business-day response</div>
           <h3>{title}</h3>
           <p>{lede}</p>
         </div>
         <div className="content-cta__actions">
-          <CTAButton variant="gold" size="lg" onClick={() => navigate("contact")}>Request Estimate</CTAButton>
-          <a href="tel:+1XXXXXXXXXX" className="content-cta__phone">(XXX) XXX-XXXX</a>
+          <CTAButton variant="gold" size="lg" onClick={() => navigate("contact")}>Get Free Estimate</CTAButton>
+          <a href="tel:+1XXXXXXXXXX" className="content-cta__phone" aria-label="Call Nagy and Sons Builders">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style={{marginRight: 6, verticalAlign: "-2px"}}><path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>
+            (XXX) XXX-XXXX
+          </a>
         </div>
       </div>
     </section>

@@ -16,6 +16,7 @@ function App() {
     return ["home", "condo", "kitchen", "bathroom", "about", "contact"].includes(h) ? h : "home";
   });
   const [scrolled, setScrolled] = useStateApp(false);
+  const [pastHero, setPastHero] = useStateApp(false);
 
   // Apply palette + type to body
   useEffectApp(() => {
@@ -36,9 +37,13 @@ function App() {
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
 
-  // Scroll listener for header shadow
+  // Scroll listener for header shadow + past-hero trigger for the sticky bar
   useEffectApp(() => {
-    function onScroll() { setScrolled(window.scrollY > 12); }
+    function onScroll() {
+      const y = window.scrollY;
+      setScrolled(y > 12);
+      setPastHero(y > 480);
+    }
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -49,8 +54,10 @@ function App() {
     window.scrollTo({ top: 0, behavior: "instant" });
   }
 
-  // Show sticky bar only on service pages (and after some scroll)
-  const showSticky = tweaks.showStickyBar && ["condo", "kitchen", "bathroom", "about"].includes(route);
+  // Show sticky bar across all conversion-relevant pages once the user has scrolled past the hero
+  const showSticky = tweaks.showStickyBar
+    && ["home", "condo", "kitchen", "bathroom", "about"].includes(route)
+    && pastHero;
 
   return (
     <>

@@ -1529,3 +1529,159 @@ body[data-type="modern"] em { font-style: italic; }
 @keyframes page-in {
   from { opacity: 0; transform: translateY(8px); }
 }
+
+/* ─── Trust strip (under hero) ─────────────────────────────────── */
+.trust-strip {
+  background: var(--cream);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(20px, 2.4vw, 28px) 0;
+}
+.trust-strip__inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 3vw, 40px);
+  align-items: center;
+}
+.trust-strip__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--green-deep);
+  font-size: 13.5px;
+  line-height: 1.35;
+}
+.trust-strip__item svg { color: var(--gold); flex-shrink: 0; }
+.trust-strip__item strong {
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.trust-strip__item span {
+  display: block;
+  font-size: 12px;
+  color: rgba(26,26,26,0.6);
+  margin-top: 1px;
+}
+@media (max-width: 900px) {
+  .trust-strip__inner { grid-template-columns: 1fr 1fr; gap: 18px; }
+}
+@media (max-width: 480px) {
+  .trust-strip__inner { grid-template-columns: 1fr; gap: 14px; }
+  .trust-strip { padding: 18px 0; }
+}
+
+/* ─── Hero promise line (under CTAs) ───────────────────────────── */
+.hero__promise {
+  margin-top: 18px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: rgba(246,243,236,0.75);
+}
+.hero__promise--light { color: rgba(26,26,26,0.65); }
+
+/* ─── DBPR verification link ───────────────────────────────────── */
+.lic-verify {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  margin-top: 10px;
+  transition: opacity .2s;
+}
+.lic-verify:hover { opacity: 0.8; text-decoration: underline; }
+.contact-block .lic-verify,
+.form-side .lic-verify { color: var(--green-deep); }
+
+/* ─── Lead form trust row (above submit) ───────────────────────── */
+.lead-form__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  padding: 14px 0;
+  margin-top: 8px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: rgba(26,26,26,0.72);
+}
+.lead-form__trust span { display: inline-flex; align-items: center; gap: 6px; }
+.lead-form__trust svg { color: var(--gold); flex-shrink: 0; }
+.lead-form--dark .lead-form__trust {
+  color: rgba(246,243,236,0.72);
+  border-top-color: var(--line-invert);
+}
+
+/* ─── Intro block multi-paragraph support ──────────────────────── */
+.intro-block__copy p {
+  margin-bottom: 1em;
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.55;
+  color: rgba(26,26,26,0.78);
+}
+.intro-block__copy p:last-child { margin-bottom: 0; }
+
+/* ─── Page-hero call CTA ───────────────────────────────────────── */
+.page-hero__call { gap: 8px; }
+.page-hero__call svg { color: currentColor; }
+
+/* ─── Mobile drawer additions ──────────────────────────────────── */
+.mobile-drawer__note {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: rgba(26,26,26,0.55);
+}
+
+/* ─── Sticky bar responsive text ───────────────────────────────── */
+.sticky-bar__phone-short { display: none; }
+@media (max-width: 560px) {
+  .sticky-bar__phone-txt { display: none; }
+  .sticky-bar__phone-short { display: inline; }
+  .sticky-bar__eyebrow { font-size: 10.5px; }
+  .sticky-bar__txt { font-size: 11.5px; }
+}
+
+/* ─── Address tag in contact block ─────────────────────────────── */
+.contact-block--address { font-style: normal; }
+.contact-block--address strong { color: var(--ink); font-weight: 600; }
+
+/* ─── Hero CTAs: better mobile stacking ────────────────────────── */
+@media (max-width: 560px) {
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .hero__actions .cta {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero__promise { font-size: 11.5px; }
+  .hero__title { font-size: clamp(38px, 11vw, 52px); }
+  .page-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .page-hero__actions .cta { width: 100%; justify-content: center; }
+}
+
+/* ─── Form-side trust list spacing ─────────────────────────────── */
+.form-side__list { margin-bottom: 24px; }
+
+/* ─── Tap target boost on mobile ───────────────────────────────── */
+@media (max-width: 560px) {
+  .cta--sm { padding: 12px 18px; font-size: 13.5px; }
+  .cta { min-height: 44px; }
+  .site-header__phone { min-height: 44px; display: inline-flex; align-items: center; }
+}

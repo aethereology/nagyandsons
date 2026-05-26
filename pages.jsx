@@ -8,7 +8,7 @@ function ServicePage({ kind, navigate }) {
       lede: "Interior condo upgrades for South Florida buildings — kitchens, bathrooms, flooring, finishes, and layout updates, coordinated with building access and association requirements in mind.",
       breadcrumbs: [{ label: "Home", to: "home" }, { label: "Condo Renovations" }],
       intro:
-        "Nagy & Sons Builders works with condo owners across Hollywood, Hallandale Beach, Aventura, Fort Lauderdale, and the wider South Florida coast to renovate interiors, update kitchens and bathrooms, replace flooring, improve layouts, and refresh older units. Condo work is its own discipline — building access, elevator reservations, association rules, working hours, and protecting shared corridors all matter as much as the construction itself. As a licensed Florida CGC, we plan the scope, coordinate trades, and run projects in a way that respects both your unit and your neighbors.",
+        "Nagy & Sons Builders works with condo owners across Hollywood, Hallandale Beach, Aventura, Fort Lauderdale, and the wider South Florida coast — renovating interiors, updating kitchens and bathrooms, replacing flooring, improving layouts, and refreshing older units.\n\nCondo work is its own discipline. Building access, elevator reservations, association rules, working hours, and protecting shared corridors all matter as much as the construction itself. As a licensed Florida CGC (CGC1513757), we plan the scope, coordinate trades, and run projects in a way that respects both your unit and your neighbors.",
       sections: [
         {
           h: "Condo renovation services",
@@ -48,7 +48,7 @@ function ServicePage({ kind, navigate }) {
       lede: "Cabinets, countertops, backsplash, lighting, layout improvements, flooring, appliances, and full kitchen upgrades — for condos, townhomes, and single-family homes across South Florida.",
       breadcrumbs: [{ label: "Home", to: "home" }, { label: "Kitchen Remodeling" }],
       intro:
-        "A kitchen remodel is usually the biggest single change you can make to a home's daily feel and resale value. We handle complete kitchen renovations — cabinetry, countertops, backsplash, tile, lighting, plumbing fixtures, appliance coordination, and the layout changes that make a real difference. Whether you're updating a condo galley or opening up a whole-home kitchen, we work from a clear written scope so you know what's included before construction starts.",
+        "A kitchen remodel is usually the biggest single change you can make to a home's daily feel and resale value. We handle complete kitchen renovations — cabinetry, countertops, backsplash, tile, lighting, plumbing fixtures, appliance coordination, and the layout changes that make a real difference.\n\nWhether you're updating a condo galley or opening up a whole-home kitchen, we work from a clear written scope so you know what's included before construction starts. Licensed Florida CGC1513757.",
       sections: [
         {
           h: "Complete kitchen renovation services",
@@ -82,7 +82,7 @@ function ServicePage({ kind, navigate }) {
       lede: "Shower remodels, tile, vanities, lighting, fixtures, layout upgrades, waterproofing coordination, and full bathroom renovations across condos and homes.",
       breadcrumbs: [{ label: "Home", to: "home" }, { label: "Bathroom Remodeling" }],
       intro:
-        "Bathrooms are the highest-detail rooms in any renovation — small footprint, dense plumbing and electrical, waterproofing that has to be right the first time, and a finished surface that's mostly tile. We renovate primary baths, secondary baths, powder rooms, and condo bathrooms, with clear scope around demolition, waterproofing, tile, fixtures, and lighting.",
+        "Bathrooms are the highest-detail rooms in any renovation. Small footprint, dense plumbing and electrical, waterproofing that has to be right the first time, and a finished surface that's mostly tile.\n\nWe renovate primary baths, secondary baths, powder rooms, and condo bathrooms across South Florida — with clear scope around demolition, waterproofing, tile, fixtures, and lighting. Licensed Florida CGC1513757.",
       sections: [
         {
           h: "Bathroom remodeling services",
@@ -129,7 +129,9 @@ function ServicePage({ kind, navigate }) {
         <div className="container container--narrow">
           <div className="intro-block">
             <div className="intro-block__rule" />
-            <p className="intro-block__copy">{m.intro}</p>
+            <div className="intro-block__copy">
+              {m.intro.split("\n\n").map((para, i) => <p key={i}>{para}</p>)}
+            </div>
           </div>
         </div>
       </section>
@@ -345,10 +347,21 @@ function ContactPage({ navigate }) {
                 Hollywood, Hallandale Beach, Aventura, Fort Lauderdale, Dania Beach, Pembroke Pines, Broward County, Miami-Dade, and surrounding South Florida communities.
               </p>
             </div>
+            <address className="contact-block contact-block--address">
+              <div className="contact-block__lbl">Based in</div>
+              <p className="contact-block__txt">
+                <strong>Hollywood, Florida</strong><br/>
+                Serving all of Broward and Miami-Dade County
+              </p>
+            </address>
             <div className="lic-pill">
               <span className="lic-pill__dot" />
-              Florida Certified General Contractor · CGC1513757
+              Licensed &amp; Insured · Florida CGC1513757
             </div>
+            <a className="lic-verify" href="https://www.myfloridalicense.com/wl11.asp?mode=1" target="_blank" rel="noopener noreferrer">
+              Verify our license at the Florida DBPR
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 8l6-6M3 2h5v5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </a>
           </div>
           <div className="form-card">
             <LeadForm />

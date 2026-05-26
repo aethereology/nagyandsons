@@ -19,20 +19,24 @@ function HomePage({ navigate, tweaks }) {
                 <span className="hero__title-thin">in South Florida</span>
               </h1>
               <p className="hero__lede">
-                A licensed Florida Certified General Contractor specializing in condo renovations,
-                kitchen remodels, bathroom remodels, and full interior upgrades across Hollywood,
-                Broward, and South Florida.
+                A licensed Florida Certified General Contractor based in Hollywood, FL — building condo
+                renovations, kitchen remodels, bathroom remodels, and whole-unit interior renovations
+                across Broward and Miami-Dade.
               </p>
               <div className="hero__actions">
-                <CTAButton variant="gold" size="lg" onClick={() => navigate("contact")}>Request an Estimate</CTAButton>
-                <CTAButton variant="ghost-light" size="lg" icon={false} onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}>View Services</CTAButton>
+                <CTAButton variant="gold" size="lg" onClick={() => navigate("contact")}>Get My Free Estimate</CTAButton>
+                <a className="cta cta--ghost-light cta--lg" href="tel:+1XXXXXXXXXX" aria-label="Call Nagy and Sons Builders">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>
+                  <span>Call (XXX) XXX-XXXX</span>
+                </a>
+              </div>
+              <div className="hero__promise">
+                Free, no-obligation estimate · We respond within 1 business day
               </div>
               <div className="hero__trust">
-                <TrustBadge label="Florida Certified" sub="General Contractor"/>
-                <TrustBadge label="CGC1513757" sub="License No."/>
+                <TrustBadge label="Florida CGC" sub="License CGC1513757"/>
+                <TrustBadge label="Licensed &amp; Insured" sub="DBPR-verifiable"/>
                 <TrustBadge label="Condo Specialists" sub="Association-friendly"/>
-                <TrustBadge label="Kitchen & Bath" sub="Remodel experts"/>
-                <TrustBadge label="South Florida" sub="Hollywood · Broward · Miami-Dade"/>
               </div>
             </div>
             <div className="hero__media">
@@ -64,16 +68,21 @@ function HomePage({ navigate, tweaks }) {
           <div className="hero__copy hero__copy--split">
             <div className="eyebrow">Hollywood, FL · South Florida</div>
             <h1 className="hero__title">Condo, Kitchen &amp; Bathroom <em>Renovations</em> in South Florida</h1>
-            <p className="hero__lede">A licensed Florida Certified General Contractor specializing in condo renovations, kitchen remodels, bathroom remodels, and full interior upgrades across Hollywood, Broward, and South Florida.</p>
+            <p className="hero__lede">A licensed Florida Certified General Contractor based in Hollywood, FL — building condo renovations, kitchen remodels, bathroom remodels, and whole-unit interior renovations across Broward and Miami-Dade.</p>
             <div className="hero__actions">
-              <CTAButton variant="primary" size="lg" onClick={() => navigate("contact")}>Request an Estimate</CTAButton>
-              <CTAButton variant="ghost" size="lg" icon={false} onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}>View Services</CTAButton>
+              <CTAButton variant="primary" size="lg" onClick={() => navigate("contact")}>Get My Free Estimate</CTAButton>
+              <a className="cta cta--ghost cta--lg" href="tel:+1XXXXXXXXXX" aria-label="Call Nagy and Sons Builders">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>
+                <span>Call (XXX) XXX-XXXX</span>
+              </a>
+            </div>
+            <div className="hero__promise hero__promise--light">
+              Free, no-obligation estimate · 1-business-day response
             </div>
             <div className="hero__trust hero__trust--light">
-              <TrustBadge variant="light" label="Florida Certified" sub="General Contractor"/>
-              <TrustBadge variant="light" label="CGC1513757" sub="License No."/>
+              <TrustBadge variant="light" label="Florida CGC" sub="License CGC1513757"/>
+              <TrustBadge variant="light" label="Licensed &amp; Insured" sub="DBPR-verifiable"/>
               <TrustBadge variant="light" label="Condo Specialists" sub="Association-friendly"/>
-              <TrustBadge variant="light" label="Kitchen & Bath" sub="Remodel experts"/>
             </div>
           </div>
           <div className="hero__media hero__media--split">
@@ -89,20 +98,71 @@ function HomePage({ navigate, tweaks }) {
           <div className="hero__inner hero__inner--centered">
             <div className="eyebrow eyebrow--gold">Hollywood, FL · South Florida</div>
             <h1 className="hero__title hero__title--center">Condo, Kitchen &amp; Bathroom <em>Renovations</em> in South Florida</h1>
-            <p className="hero__lede">A licensed Florida Certified General Contractor specializing in condo renovations, kitchen remodels, bathroom remodels, and full interior upgrades across Hollywood, Broward, and South Florida.</p>
+            <p className="hero__lede">A licensed Florida Certified General Contractor based in Hollywood, FL — building condo renovations, kitchen remodels, bathroom remodels, and whole-unit interior renovations across Broward and Miami-Dade.</p>
             <div className="hero__actions hero__actions--center">
-              <CTAButton variant="gold" size="lg" onClick={() => navigate("contact")}>Request an Estimate</CTAButton>
-              <CTAButton variant="ghost-light" size="lg" icon={false} onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}>View Services</CTAButton>
+              <CTAButton variant="gold" size="lg" onClick={() => navigate("contact")}>Get My Free Estimate</CTAButton>
+              <a className="cta cta--ghost-light cta--lg" href="tel:+1XXXXXXXXXX" aria-label="Call Nagy and Sons Builders">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 3c0 5 4 9 9 9l1-2.5-3-1-1 1c-1.5-.6-2.9-2-3.5-3.5l1-1L4 2 2 3z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>
+                <span>Call (XXX) XXX-XXXX</span>
+              </a>
+            </div>
+            <div className="hero__promise" style={{textAlign:"center"}}>
+              Free, no-obligation estimate · 1-business-day response
             </div>
             <div className="hero__trust hero__trust--center">
-              <TrustBadge label="Florida Certified" sub="General Contractor"/>
-              <TrustBadge label="CGC1513757" sub="License No."/>
+              <TrustBadge label="Florida CGC" sub="License CGC1513757"/>
+              <TrustBadge label="Licensed &amp; Insured" sub="DBPR-verifiable"/>
               <TrustBadge label="Condo Specialists" sub="Association-friendly"/>
-              <TrustBadge label="South Florida" sub="Hollywood · Broward · Miami-Dade"/>
             </div>
           </div>
         </section>
       )}
+
+      {/* TRUST STRIP — appears directly under the hero */}
+      <section className="trust-strip" aria-label="Trust signals">
+        <div className="container trust-strip__inner">
+          <div className="trust-strip__item">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+              <path d="M11 2l7 3v6c0 4.5-3 7.5-7 8.5-4-1-7-4-7-8.5V5l7-3z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
+              <path d="M7.5 11l2.5 2.5L15 8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <div>
+              <strong>Licensed Florida CGC</strong>
+              <span>CGC1513757 · DBPR-verifiable</span>
+            </div>
+          </div>
+          <div className="trust-strip__item">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+              <rect x="3" y="3" width="16" height="16" rx="2" stroke="currentColor" strokeWidth="1.3"/>
+              <path d="M7 11l3 3 5-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <div>
+              <strong>Insured &amp; Bonded</strong>
+              <span>Full COI on request</span>
+            </div>
+          </div>
+          <div className="trust-strip__item">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+              <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="1.3"/>
+              <path d="M11 6v5l3 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <div>
+              <strong>1-Business-Day Reply</strong>
+              <span>Direct contractor contact</span>
+            </div>
+          </div>
+          <div className="trust-strip__item">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+              <path d="M11 2v18M2 11h18" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+              <circle cx="11" cy="11" r="4" stroke="currentColor" strokeWidth="1.3"/>
+            </svg>
+            <div>
+              <strong>Hollywood, FL &amp; South Florida</strong>
+              <span>Broward · Miami-Dade</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* SERVICES OVERVIEW */}
       <section className="section" id="services" data-screen-label="Services">
